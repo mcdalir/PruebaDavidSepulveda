@@ -1,0 +1,64 @@
+<!-- <nav class="navbar navbar-dark bg-primary">
+  <a href="/" class="navbar-brand">Angular CRUD</a>
+</nav> -->
+<!-- *ngIf="edit" -->
+
+<div class="container-lg">
+  <div class="row pt-4">
+    <div class="col-md-8">
+      
+      <form class="" >
+        <div class="card mb-3">
+          <div class="">
+            <input (input)="OnTitleChange($event)" placeholder="Título" class="card-header form-control text-center bg-dark text-white border-0" value="{{selectedProduct.title}}"/>
+          </div>
+          <label for="file-input" class="cursor-pointer text-center">
+            <img class="img-fluid" src="{{selectedProduct.img}}" />
+          </label>
+          <input (input)="OnFileChanged($event)" class="file-input" class="d-none" id="file-input" type="file" accept="image/*" />
+          <div class="card-body ">
+            <div class="form-group">
+              <select (input)="OnCategoryChange($event)" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                <option>Seleccionar Categoría</option>
+                <option *ngFor="let category of categories" value="{{category.id}}" [selected]="category.id == selectedProduct.category" >{{category.name}}</option>
+              </select>
+            </div>
+
+            <textarea (input)="OnDescriptionChange($event)" placeholder="Descripción" class="card-text form-control" rows=5 value="{{selectedProduct.description}}"></textarea>
+          </div>
+          <div class="card-footer">
+            <div class="float-right">
+              <div *ngIf="selectedProduct.id != newProduct.id" class="btn btn-danger ml-2" (click)="Delete(selectedProduct)">Eliminar</div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+
+
+    </div>
+
+    <div class="col-md-4 vh-100 overflow-auto">
+      <h4 class="text-center text-secondary col-12">Selecciona un producto</h4>
+      <div class="row px-1">
+    
+        <div class="card mb-3 mx-1 col-5 p-0 cursor-pointer" (click)="SetSelectedProduct(newProduct)" [ngClass]="{'bg-primary text-light': selectedProduct.id == '-1'}">
+          <img src="{{newProduct.img}}" />
+          <div class="card-body p-2">
+            <p class="card-title text-center">Nuevo producto</p>
+          </div>
+        </div>
+        
+        <div *ngFor="let product of products" class="card mb-3 mx-1 col-5 p-0 cursor-pointer" (click)="SetSelectedProduct(product)" [ngClass]="{'bg-primary text-light': selectedProduct.id == product.id}" >
+          <img src="{{product.img}}" />
+          <div class="card-body p-2">
+            <p class="card-title text-center">{{product.title}}</p>
+          </div>
+        </div>
+        
+      </div>
+
+    </div>
+
+  </div>
+</div>

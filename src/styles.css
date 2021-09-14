@@ -1,0 +1,17 @@
+body, html{
+    
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(255, 255, 255) !important;
+  opacity: 1; /* Firefox */
+}
+
+textarea::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(66, 66, 66) !important;
+  opacity: 1; /* Firefox */
+}
