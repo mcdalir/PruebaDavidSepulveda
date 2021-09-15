@@ -1,0 +1,87 @@
+body, html{
+    background-color: #ff0101 !important;
+}
+
+.container-lg{
+    max-width: 1080px;
+}
+
+section{
+    background-color: rgb(173, 197, 46) !important;
+    min-height: 100vh;
+}
+
+.nav-container{
+    position: relative;
+    display: block;
+    min-height: 80px;
+    width: 100%;
+    padding: 0px;
+    overflow: hidden;
+}
+
+.nav-wrapper
+{
+    display: block;
+    position: absolute;
+    width: 90%;
+    max-width: calc(100% - 60px);
+    left: 0px;
+    right: 0px;
+    bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+
+ul.nav-slider
+{
+    /* position: absolute; */
+    width: 100%;
+    left: 0px;
+    right: 0px;
+    padding: 0px;
+}
+
+ul.nav-slider > li
+{
+    display: inline;
+    margin-right: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all .25s ease-in-out;
+}
+
+ul.nav-slider > li:hover
+{
+    color: #FFF;
+    transition: all .25s ease-in-out;
+}
+
+.nav-container .carousel-control-prev
+{
+    left: 5px;
+}
+.nav-container .carousel-control-next
+{
+    right: 5px;
+}
+
+.nav-container .carousel-control-next,
+.nav-container .carousel-control-prev{
+    filter: invert(100%);
+    padding: 0px;
+    margin: 0px;
+    width: 20px;
+}
+
+.catalog{
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    min-height: 1840px;
+    padding: 0px;
+    background-image: url('src/assets/img/background.png');
+}
+
+
+
