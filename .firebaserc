@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "tangiblecrud": {
+      "hosting": {
+        "prueba-david-sepulveda": [
+          "tangiblecrud"
+        ]
+      }
+    }
+  }
+}

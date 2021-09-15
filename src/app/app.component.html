@@ -3,32 +3,42 @@
 </nav> -->
 <!-- *ngIf="edit" -->
 
+<!-- <ul>
+  <li class="text" *ngFor="let item of items | async">
+    {{item.title}} - {{item.id}}
+  </li>
+</ul> -->
+
 <div class="container-lg">
   <div class="row pt-4">
     <div class="col-md-8">
       
-      <form class="" >
+      <form >
         <div class="card mb-3">
           <div class="">
-            <input (input)="OnTitleChange($event)" placeholder="Título" class="card-header form-control text-center bg-dark text-white border-0" value="{{selectedProduct.title}}"/>
+            <input id="new-product-title" (input)="OnTitleChange($event)" placeholder="Título" class="card-header form-control text-center bg-dark text-white border-0" value="{{selectedProduct.title}}"/>
           </div>
-          <label for="file-input" class="cursor-pointer text-center">
-            <img class="img-fluid" src="{{selectedProduct.img}}" />
+          <label for="file-input" class="cursor-pointer text-center d-flex align-items-center justify-content-center">
+              <figure class="figure">
+                <figcaption class="figure-caption text-right" *ngIf="isUploading">{{uploadPercentage}}%</figcaption>
+                <img class="img-fluid" width=512 alt="{{selectedProduct.title}}" src="{{selectedProduct.img}}" />
+              </figure>
           </label>
+
           <input (input)="OnFileChanged($event)" class="file-input" class="d-none" id="file-input" type="file" accept="image/*" />
           <div class="card-body ">
             <div class="form-group">
-              <select (input)="OnCategoryChange($event)" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+              <select id="new-product-category" (input)="OnCategoryChange($event)" class="custom-select mr-sm-2">
                 <option>Seleccionar Categoría</option>
-                <option *ngFor="let category of categories" value="{{category.id}}" [selected]="category.id == selectedProduct.category" >{{category.name}}</option>
+                <option *ngFor="let category of categories" value="{{category.id}}" [selected]="category.id == selectedProduct.category" >{{category.title}}</option>
               </select>
             </div>
 
-            <textarea (input)="OnDescriptionChange($event)" placeholder="Descripción" class="card-text form-control" rows=5 value="{{selectedProduct.description}}"></textarea>
+            <textarea id="new-product-description" (input)="OnDescriptionChange($event)" placeholder="Descripción" class="card-text form-control" rows=5 value="{{selectedProduct.description}}"></textarea>
           </div>
           <div class="card-footer">
             <div class="float-right">
-              <div *ngIf="selectedProduct.id != newProduct.id" class="btn btn-danger ml-2" (click)="Delete(selectedProduct)">Eliminar</div>
+              <button id="new-product-delete" data-toggle="modal" data-target=".modal" *ngIf="selectedProduct.id != newProduct.id" class="btn btn-danger ml-2">Eliminar</button>
             </div>
           </div>
         </div>
@@ -60,5 +70,27 @@
 
     </div>
 
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">¿Eliminar el producto seleccionado?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>{{selectedProduct.title}}</p>
+        <p>{{selectedProduct.description}}</p>
+        <p><img width=200 class="img-fluid" src="{{selectedProduct.img}}" /></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="Delete(selectedProduct)" data-dismiss="modal">Aceptar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
   </div>
 </div>
