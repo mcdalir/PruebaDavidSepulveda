@@ -1,0 +1,17 @@
+import { Component, OnInit } from '@angular/core';
+
+// import { RouterModule } from '@angular/router';
+
+@Component({
+  selector: 'app-front-end',
+  templateUrl: './front-end.component.html',
+  styleUrls: ['./front-end.component.css']
+})
+export class FrontEndComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
