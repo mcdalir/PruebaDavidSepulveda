@@ -161,7 +161,9 @@ ul.nav-slider > li:hover
     width: 80px;
     height: 80px;
     margin-top: 5px;
-    position: absolute;
+    margin-left: 87%;
+    margin-left: calc(100% - 50px);
+    position: relative;
     right: -5px;
 }
 
@@ -177,7 +179,7 @@ ul.nav-slider > li:hover
     top: -5px;
     padding: 2px;
     text-align: center;
-    line-height: normal;
+    line-height: 21px;
     border-radius: 50%;
 }
 
@@ -210,7 +212,7 @@ ul.nav-slider > li:hover
     content: '';
     display: block;
     height:3px;
-    width: 25%;
+    width:50px;
     margin-bottom: 14px;
     background-color: #181818;
 }
@@ -279,5 +281,9 @@ ul.nav-slider > li:hover
     .featured-1
     {
         margin-top: 50px !important;
+    }
+    .main
+    {
+        background-position: center 85%;
     }
   }
